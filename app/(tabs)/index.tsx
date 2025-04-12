@@ -5,10 +5,12 @@ import SourceTextInput from "../../components/textInputs/SourceTextInput";
 import LanguageSelector from "../../components/selectors/LanguageSelector";
 import HistoryService from "../../services/db/HistoryService";
 import translate from "../../services/api/translator";
+import { useSelector } from "react-redux";
+import { selectSourceLangCode, selectTargetLangCode } from "../slices/languageSelectorSlice";
 
 export default function Index() {
-    const [sourceLang, setSourceLang] = useState<string>("auto");
-    const [targetLang, setTargetLang] = useState<string>("uk");
+    const sourceLangCode = useSelector(selectSourceLangCode);
+    const targetLangCode = useSelector(selectTargetLangCode);
     const [sourceText, setSourceText] = useState<string>("");
     const [translatedText, setTranslatedText] = useState<string>("Translated text...");
     const typingTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -18,8 +20,8 @@ export default function Index() {
 
         const translation = await translate({
             text: value,
-            source: sourceLang,
-            target: targetLang,
+            source: sourceLangCode,
+            target: targetLangCode,
         });
 
         setTranslatedText(translation);
@@ -33,8 +35,8 @@ export default function Index() {
                 await HistoryService.create({
                     sourceText: value,
                     targetText: translation,
-                    sourceLang: sourceLang,
-                    targetLang: targetLang,
+                    sourceLang: sourceLangCode,
+                    targetLang: targetLangCode,
                 });
             }
         }, 3000);

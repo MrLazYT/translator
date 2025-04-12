@@ -1,11 +1,18 @@
-import { Pressable, StyleSheet, Text } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import { LanguageLabelProps } from "../../types/componentTypes";
+import { Link } from "expo-router";
+import { useSelector } from "react-redux";
+import { selectSourceLangNameEn, selectTargetLangNameEn } from "../../app/slices/languageSelectorSlice";
 
-export default function LanguageLabel({ onPress, isSource, label }: LanguageLabelProps) {
+export default function LanguageLabel({ isSource }: LanguageLabelProps) {
+    const selectedLanguage = useSelector(isSource ? selectSourceLangNameEn : selectTargetLangNameEn);
+
     return (
-        <Pressable onPress={onPress}>
-            <Text style={isSource ? styles.languageSelectorSource : styles.languageSelectorTarget}>{label}</Text>
-        </Pressable>
+        <Link href={{ pathname: "/selectLanguageModal", params: { isSource: String(isSource) } }} asChild>
+            <Text style={isSource ? styles.languageSelectorSource : styles.languageSelectorTarget}>
+                {selectedLanguage}
+            </Text>
+        </Link>
     );
 }
 

@@ -1,0 +1,197 @@
+[
+    {
+        "lang_code": "auto",
+        "lang_name_en": "Auto Detect",
+        "lang_name_uk": "Визначити автоматично"
+    },
+    {
+        "lang_code": "sq",
+        "lang_name_en": "Albanian",
+        "lang_name_uk": "Албанська"
+    },
+    {
+        "lang_code": "bs",
+        "lang_name_en": "Bosnian",
+        "lang_name_uk": "Боснійська"
+    },
+    {
+        "lang_code": "bg",
+        "lang_name_en": "Bulgarian",
+        "lang_name_uk": "Болгарська"
+    },
+    {
+        "lang_code": "zh-Hans",
+        "lang_name_en": "Chinese (Simplified)",
+        "lang_name_uk": "Китайська (спрощена)"
+    },
+    {
+        "lang_code": "zh-Hant",
+        "lang_name_en": "Chinese (Traditional)",
+        "lang_name_uk": "Китайська (традиційна)"
+    },
+    {
+        "lang_code": "crh-Latn",
+        "lang_name_en": "Crimean Tatar",
+        "lang_name_uk": "Кримськотатарська"
+    },
+    {
+        "lang_code": "hr",
+        "lang_name_en": "Croatian",
+        "lang_name_uk": "Хорватська"
+    },
+    {
+        "lang_code": "cs",
+        "lang_name_en": "Czech",
+        "lang_name_uk": "Чеська"
+    },
+    {
+        "lang_code": "da",
+        "lang_name_en": "Danish",
+        "lang_name_uk": "Данська"
+    },
+    {
+        "lang_code": "nl",
+        "lang_name_en": "Dutch",
+        "lang_name_uk": "Нідерландська"
+    },
+    {
+        "lang_code": "en",
+        "lang_name_en": "English",
+        "lang_name_uk": "Англійська"
+    },
+    {
+        "lang_code": "et",
+        "lang_name_en": "Estonian",
+        "lang_name_uk": "Естонська"
+    },
+    {
+        "lang_code": "fi",
+        "lang_name_en": "Finnish",
+        "lang_name_uk": "Фінська"
+    },
+    {
+        "lang_code": "fr",
+        "lang_name_en": "French",
+        "lang_name_uk": "Французька"
+    },
+    {
+        "lang_code": "fr-CA",
+        "lang_name_en": "French (Canada)",
+        "lang_name_uk": "Французька (Канада)"
+    },
+    {
+        "lang_code": "de",
+        "lang_name_en": "German",
+        "lang_name_uk": "Німецька"
+    },
+    {
+        "lang_code": "el",
+        "lang_name_en": "Greek",
+        "lang_name_uk": "Грецька"
+    },
+    {
+        "lang_code": "is",
+        "lang_name_en": "Icelandic",
+        "lang_name_uk": "Ісландська"
+    },
+    {
+        "lang_code": "it",
+        "lang_name_en": "Italian",
+        "lang_name_uk": "Італійська"
+    },
+    {
+        "lang_code": "ja",
+        "lang_name_en": "Japanese",
+        "lang_name_uk": "Японська"
+    },
+    {
+        "lang_code": "ko",
+        "lang_name_en": "Korean",
+        "lang_name_uk": "Корейська"
+    },
+    {
+        "lang_code": "krn",
+        "lang_name_en": "Kraitonian",
+        "lang_name_uk": "Крайтонська"
+    },
+    {
+        "lang_code": "la",
+        "lang_name_en": "Latin",
+        "lang_name_uk": "Латинська"
+    },
+    {
+        "lang_code": "lv",
+        "lang_name_en": "Latvian",
+        "lang_name_uk": "Латвійська"
+    },
+    {
+        "lang_code": "lb",
+        "lang_name_en": "Luxembourgish",
+        "lang_name_uk": "Люксембурзька"
+    },
+    {
+        "lang_code": "mk",
+        "lang_name_en": "Macedonian",
+        "lang_name_uk": "Македонська"
+    },
+    {
+        "lang_code": "no",
+        "lang_name_en": "Norwegian",
+        "lang_name_uk": "Норвезька"
+    },
+    {
+        "lang_code": "pl",
+        "lang_name_en": "Polish",
+        "lang_name_uk": "Польська"
+    },
+    {
+        "lang_code": "pt-BR",
+        "lang_name_en": "Portuguese (Brazil)",
+        "lang_name_uk": "Португальська (Бразилія)"
+    },
+    {
+        "lang_code": "pt-PT",
+        "lang_name_en": "Portuguese (Portugal)",
+        "lang_name_uk": "Португальська (Португалія)"
+    },
+    {
+        "lang_code": "ro",
+        "lang_name_en": "Romanian",
+        "lang_name_uk": "Румунська"
+    },
+    {
+        "lang_code": "sr",
+        "lang_name_en": "Serbian",
+        "lang_name_uk": "Сербська"
+    },
+    {
+        "lang_code": "sk",
+        "lang_name_en": "Slovak",
+        "lang_name_uk": "Словацька"
+    },
+    {
+        "lang_code": "sl",
+        "lang_name_en": "Slovenian",
+        "lang_name_uk": "Словенська"
+    },
+    {
+        "lang_code": "es",
+        "lang_name_en": "Spanish",
+        "lang_name_uk": "Іспанська"
+    },
+    {
+        "lang_code": "sv",
+        "lang_name_en": "Swedish",
+        "lang_name_uk": "Шведська"
+    },
+    {
+        "lang_code": "tr",
+        "lang_name_en": "Turkish",
+        "lang_name_uk": "Турецька"
+    },
+    {
+        "lang_code": "uk",
+        "lang_name_en": "Ukrainian",
+        "lang_name_uk": "Українська"
+    }
+]

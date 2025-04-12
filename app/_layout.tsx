@@ -1,18 +1,24 @@
 import { Suspense } from "react";
 import { Stack } from "expo-router";
 import { ActivityIndicator, StatusBar } from "react-native";
-
-// export const DATABASE_NAME = "tasks_db";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 export default function RootLayout() {
     return (
-        <Suspense fallback={<ActivityIndicator size="large" />}>
-            <StatusBar barStyle="light-content" />
+        <Provider store={store}>
+            <Suspense fallback={<ActivityIndicator size="large" />}>
+                <StatusBar barStyle="light-content" />
 
-            <Stack>
-                <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-                <Stack.Screen name="+not-found" />
-            </Stack>
-        </Suspense>
+                <Stack>
+                    <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+                    <Stack.Screen
+                        name="selectLanguageModal"
+                        options={{ title: "Select Language", presentation: "modal" }}
+                    />
+                    <Stack.Screen name="+not-found" />
+                </Stack>
+            </Suspense>
+        </Provider>
     );
 }

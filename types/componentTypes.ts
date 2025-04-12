@@ -15,10 +15,17 @@ export type CustomImageButtonProps = {
     onPress: () => void;
 };
 
+export type LanguageSelectorProps = {
+    setSourceLangCode: (langCode: string) => void;
+    setTargetLangCode: (langCode: string) => void;
+    sourceLangName: string;
+    targetLangName: string;
+    setSourceLangName: (lang: string) => void;
+    setTargetLangName: (lang: string) => void;
+};
+
 export type LanguageLabelProps = {
-    onPress: () => void;
     isSource: boolean;
-    label: string;
 };
 
 export type TranslationCardProps = {
@@ -32,4 +39,15 @@ export type TranslationCardProps = {
 
 export type MigrationErrorProps = {
     error: Error;
+};
+
+export type LanguageOptionProps = {
+    isSource: boolean;
+    langCode: string;
+    langNameEn: string;
+    langNameUk: string;
+};
+
+export type SelectLanguageModalProps = {
+    isSource: boolean;
 };

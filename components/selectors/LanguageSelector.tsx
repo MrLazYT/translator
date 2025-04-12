@@ -1,13 +1,14 @@
 import { StyleSheet, View } from "react-native";
 import LanguageLabel from "../labels/LanguageLabel";
 import SwitchLangButton from "../buttons/SwitchLangButton";
+import { LanguageSelectorProps } from "../../types/componentTypes";
 
 export default function LanguageSelector() {
     return (
         <View style={styles.languageSelectorContainer}>
-            <LanguageLabel onPress={() => {}} isSource={true} label="English" />
+            <LanguageLabel isSource={true} />
             <SwitchLangButton />
-            <LanguageLabel onPress={() => {}} isSource={false} label="Ukrainian" />
+            <LanguageLabel isSource={false} />
         </View>
     );
 }
