@@ -8,7 +8,7 @@ import HistoryService from "../../services/db/HistoryService";
 import { useMigrations } from "drizzle-orm/expo-sqlite/migrator";
 import migrations from "../../drizzle/migrations";
 import { db } from "../../services/db/dbService";
-import { useNavigation } from "expo-router";
+import { useFocusEffect, useNavigation } from "expo-router";
 
 export default function History() {
     const { success, error } = useMigrations(db, migrations);
@@ -22,11 +22,27 @@ export default function History() {
         setItems(taskList);
     }
 
-    useEffect(() => {
-        (async () => {
-            await update();
-        })();
-    }, [isFocused]);
+    useFocusEffect(
+        useCallback(() => {
+            update();
+        }, [])
+    );
+
+    const onRemove = useCallback((id: number) => {
+        setItems((prevItems) => prevItems?.filter((item) => item.id !== id) ?? null);
+    }, []);
+
+    const renderItem = useCallback(
+        ({ item }: any) => (
+            <TranslationCard
+                id={item.id}
+                sourceText={item.sourceText}
+                targetText={item.targetText}
+                onRemove={onRemove}
+            />
+        ),
+        [items]
+    );
 
     if (error) {
         return <MigrationError error={error} />;
@@ -36,12 +52,6 @@ export default function History() {
         return <MigrationInProgress />;
     }
 
-    const onRemove = (id: number) => {
-        if (!items) return;
-        const newItems = items.filter((item) => item.id !== id);
-        setItems(newItems);
-    };
-
     return (
         <View style={styles.container}>
             <Text style={styles.title}>History</Text>
@@ -50,18 +60,12 @@ export default function History() {
             ) : (
                 <FlatList
                     data={items}
+                    windowSize={5}
+                    removeClippedSubviews={true}
                     initialNumToRender={10}
                     maxToRenderPerBatch={10}
-                    removeClippedSubviews={true}
                     onEndReachedThreshold={0.5}
-                    renderItem={({ item }) => (
-                        <TranslationCard
-                            id={item.id}
-                            sourceText={item.sourceText}
-                            targetText={item.targetText}
-                            onRemove={onRemove}
-                        />
-                    )}
+                    renderItem={renderItem}
                     keyExtractor={(item) => item.id.toString()}
                 />
             )}

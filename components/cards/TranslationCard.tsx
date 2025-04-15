@@ -6,6 +6,10 @@ import RemoveButton from "../buttons/RemoveButton";
 import * as Clipboard from "expo-clipboard";
 import HistoryService from "../../services/db/HistoryService";
 
+function areEqual(prev: TranslationCardProps, next: TranslationCardProps) {
+    return prev.id === next.id && prev.sourceText === next.sourceText && prev.targetText === next.targetText;
+}
+
 export default React.memo(function TranslationCard({ id, sourceText, targetText, onRemove }: TranslationCardProps) {
     const [isPressed, setIsPressed] = useState<boolean>(false);
 
@@ -34,11 +38,12 @@ export default React.memo(function TranslationCard({ id, sourceText, targetText,
             <Text style={isPressed ? styles.targetText : styles.hidden}>{targetText}</Text>
         </Pressable>
     );
-});
+}, areEqual);
 
 const styles = StyleSheet.create({
     container: {
         width: "100%",
+        height: 69,
         padding: 20,
         backgroundColor: "#1E1E1E",
         borderTopColor: "#444444",
