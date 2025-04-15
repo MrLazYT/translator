@@ -23,12 +23,14 @@ export default function SwitchLangButton() {
     const targetLangNameUk = useSelector(selectTargetLangNameUk);
 
     const switchLangs = () => {
-        dispatch(
-            setSourceLang({ langCode: targetLangCode, langNameEn: targetLangNameEn, langNameUk: targetLangNameUk })
-        );
-        dispatch(
-            setTargetLang({ langCode: sourceLangCode, langNameEn: sourceLangNameEn, langNameUk: sourceLangNameUk })
-        );
+        if (sourceLangCode !== "auto") {
+            dispatch(
+                setSourceLang({ langCode: targetLangCode, langNameEn: targetLangNameEn, langNameUk: targetLangNameUk })
+            );
+            dispatch(
+                setTargetLang({ langCode: sourceLangCode, langNameEn: sourceLangNameEn, langNameUk: sourceLangNameUk })
+            );
+        }
     };
 
     return <CircleImageButton source={require("../../assets/change-language-icon.png")} onPress={switchLangs} />;

@@ -14,7 +14,14 @@ export default function RootLayout() {
                     <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
                     <Stack.Screen
                         name="selectLanguageModal"
-                        options={{ title: "Select Language", presentation: "modal" }}
+                        options={{
+                            title: "Select Language",
+                            headerStyle: {
+                                backgroundColor: "#4B4B4B",
+                            },
+                            headerTintColor: "#E4E4E4",
+                            presentation: "modal",
+                        }}
                     />
                     <Stack.Screen name="+not-found" />
                 </Stack>

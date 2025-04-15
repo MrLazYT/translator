@@ -1,13 +1,20 @@
 import { Pressable, StyleSheet, Text } from "react-native";
 import { LanguageOptionProps } from "../../types/componentTypes";
 import { useRouter } from "expo-router";
-import { useDispatch } from "react-redux";
-import { setSourceLang, setTargetLang } from "../../app/slices/languageSelectorSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+    selectSourceLangCode,
+    selectTargetLangCode,
+    setSourceLang,
+    setTargetLang,
+} from "../../app/slices/languageSelectorSlice";
 
 export default function LanguageOption({ isSource, langCode, langNameEn, langNameUk }: LanguageOptionProps) {
     const router = useRouter();
     const dispatch = useDispatch();
     const setLang = isSource ? setSourceLang : setTargetLang;
+    const selectedLangCode = useSelector(isSource ? selectSourceLangCode : selectTargetLangCode);
+    const isSelected = langCode == selectedLangCode;
 
     const onPressHandle = () => {
         dispatch(setLang({ langCode, langNameEn, langNameUk }));
@@ -15,7 +22,7 @@ export default function LanguageOption({ isSource, langCode, langNameEn, langNam
     };
 
     return (
-        <Pressable onPress={onPressHandle} style={styles.option}>
+        <Pressable onPress={onPressHandle} style={isSelected ? styles.selectedOption : styles.option}>
             <Text style={styles.optionText}>{langNameEn}</Text>
         </Pressable>
     );
@@ -27,6 +34,16 @@ const styles = StyleSheet.create({
         backgroundColor: "#1E1E1E",
         borderTopColor: "#444444",
         borderBottomColor: "#444444",
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        verticalAlign: "top",
+    },
+
+    selectedOption: {
+        padding: 20,
+        backgroundColor: "#2A2A2A",
+        borderTopColor: "#555555",
+        borderBottomColor: "#555555",
         borderTopWidth: 1,
         borderBottomWidth: 1,
         verticalAlign: "top",

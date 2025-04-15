@@ -1,12 +1,12 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { TranslationCardProps } from "../../types/componentTypes";
-import { useState } from "react";
+import React, { useState } from "react";
 import CopyButton from "../buttons/CopyButton";
 import RemoveButton from "../buttons/RemoveButton";
 import * as Clipboard from "expo-clipboard";
 import HistoryService from "../../services/db/HistoryService";
 
-export default function TranslationCard({ id, sourceText, targetText, onRemove }: TranslationCardProps) {
+export default React.memo(function TranslationCard({ id, sourceText, targetText, onRemove }: TranslationCardProps) {
     const [isPressed, setIsPressed] = useState<boolean>(false);
 
     const onPressHandle = () => {
@@ -34,7 +34,7 @@ export default function TranslationCard({ id, sourceText, targetText, onRemove }
             <Text style={isPressed ? styles.targetText : styles.hidden}>{targetText}</Text>
         </Pressable>
     );
-}
+});
 
 const styles = StyleSheet.create({
     container: {

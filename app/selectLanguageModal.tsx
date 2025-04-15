@@ -1,17 +1,24 @@
-import { FlatList, View } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import LanguageOption from "../components/options/LanguageOption";
 import { useLocalSearchParams } from "expo-router";
+import { useSelector } from "react-redux";
+import { selectSourceLangCode, selectTargetLangCode } from "./slices/languageSelectorSlice";
 
 export default function SelectLanguageModal() {
     const languages: LanguageType[] = require("../assets/data/languages.json");
 
     const { isSource } = useLocalSearchParams();
     const isSourceBoolean = isSource == "true";
+    const selectedLangCode = useSelector(isSourceBoolean ? selectTargetLangCode : selectSourceLangCode);
 
-    const filteredLanguages = isSourceBoolean ? languages : languages.filter((lang) => lang.lang_code !== "auto");
+    const filteredLanguages = languages.filter((lang) => {
+        if (lang.lang_code === selectedLangCode) return false;
+        if (!isSourceBoolean && lang.lang_code === "auto") return false;
+        return true;
+    });
 
     return (
-        <View>
+        <View style={styles.container}>
             <FlatList
                 data={filteredLanguages}
                 keyExtractor={(item: LanguageType) => item.lang_code}
@@ -27,3 +34,9 @@ export default function SelectLanguageModal() {
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: "black",
+    },
+});

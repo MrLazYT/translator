@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet, FlatList } from "react-native";
 import { historyTable } from "../../db/schema";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import MigrationError from "../../components/migrations/MigrationError";
 import MigrationInProgress from "../../components/migrations/MigrationInProgress";
 import TranslationCard from "../../components/cards/TranslationCard";
@@ -38,18 +38,22 @@ export default function History() {
 
     const onRemove = (id: number) => {
         if (!items) return;
-
         const newItems = items.filter((item) => item.id !== id);
         setItems(newItems);
     };
 
     return (
         <View style={styles.container}>
+            <Text style={styles.title}>History</Text>
             {items === null || items.length === 0 ? (
                 <Text style={styles.text}>There's no translations yet</Text>
             ) : (
                 <FlatList
                     data={items}
+                    initialNumToRender={10}
+                    maxToRenderPerBatch={10}
+                    removeClippedSubviews={true}
+                    onEndReachedThreshold={0.5}
                     renderItem={({ item }) => (
                         <TranslationCard
                             id={item.id}
@@ -70,8 +74,17 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#000000",
     },
+    title: {
+        margin: 10,
+        color: "#E4E4E4",
+        textAlign: "center",
+        fontSize: 24,
+    },
     text: {
         color: "#E4E4E4",
+        textAlign: "center",
+        marginTop: "auto",
+        marginBottom: "auto",
         fontSize: 20,
     },
 });

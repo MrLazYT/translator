@@ -1,7 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import LanguageLabel from "../labels/LanguageLabel";
 import SwitchLangButton from "../buttons/SwitchLangButton";
-import { LanguageSelectorProps } from "../../types/componentTypes";
 
 export default function LanguageSelector() {
     return (
