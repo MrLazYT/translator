@@ -1,14 +1,14 @@
-import { Text, View, StyleSheet, FlatList } from "react-native";
+import { useCallback, useState } from "react";
 import { historyTable } from "../../db/schema";
-import { useCallback, useEffect, useState } from "react";
+import { db } from "../../services/db/dbService";
+import migrations from "../../drizzle/migrations";
+import { useFocusEffect, useNavigation } from "expo-router";
+import HistoryService from "../../services/db/HistoryService";
+import { Text, View, StyleSheet, FlatList } from "react-native";
+import { useMigrations } from "drizzle-orm/expo-sqlite/migrator";
+import TranslationCard from "../../components/cards/TranslationCard";
 import MigrationError from "../../components/migrations/MigrationError";
 import MigrationInProgress from "../../components/migrations/MigrationInProgress";
-import TranslationCard from "../../components/cards/TranslationCard";
-import HistoryService from "../../services/db/HistoryService";
-import { useMigrations } from "drizzle-orm/expo-sqlite/migrator";
-import migrations from "../../drizzle/migrations";
-import { db } from "../../services/db/dbService";
-import { useFocusEffect, useNavigation } from "expo-router";
 
 export default function History() {
     const { success, error } = useMigrations(db, migrations);

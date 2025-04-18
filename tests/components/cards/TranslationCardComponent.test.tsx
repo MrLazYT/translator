@@ -1,7 +1,8 @@
-import { fireEvent, render, waitFor } from "@testing-library/react-native";
-import TranslationCard from "../../../components/cards/TranslationCard";
 import * as Clipboard from "expo-clipboard";
 import HistoryService from "../../../services/db/HistoryService";
+import TranslationCard, { areEqual } from "../../../components/cards/TranslationCard";
+import { fireEvent, render, waitFor } from "@testing-library/react-native";
+import { TranslationCardProps } from "../../../types/componentTypes";
 
 const sourceText = "Hello";
 const targetText = "Привіт";
@@ -106,5 +107,53 @@ describe("TranslationComponent", () => {
         await waitFor(() => expect(HistoryService.delete).toHaveBeenCalledWith(1));
 
         expect(onRemove).toHaveBeenCalledWith(1);
+    });
+
+    it("are props equal", () => {
+        const translationCardProps1: TranslationCardProps = {
+            id: 1,
+            sourceText: "sourceText",
+            targetText: "targetText",
+            sourceLang: "sourceLang",
+            targetLang: "targetLang",
+            onRemove: () => {},
+        };
+
+        const translationCardProps2: TranslationCardProps = {
+            id: 1,
+            sourceText: "sourceText",
+            targetText: "targetText",
+            sourceLang: "sourceLang",
+            targetLang: "targetLang",
+            onRemove: () => {},
+        };
+
+        const isEqual = areEqual(translationCardProps1, translationCardProps2);
+
+        expect(isEqual).toBeTruthy();
+    });
+
+    it("are props equal", () => {
+        const translationCardProps1: TranslationCardProps = {
+            id: 1,
+            sourceText: "sourceText",
+            targetText: "targetText",
+            sourceLang: "sourceLang",
+            targetLang: "targetLang",
+            onRemove: () => {},
+        };
+
+        const translationCardProps2: TranslationCardProps = {
+            id: 2,
+            sourceText: "sourceText1",
+            targetText: "targetText2",
+            sourceLang: "sourceLang3",
+            targetLang: "targetLang4",
+            onRemove: () => {},
+        };
+
+        const isEqual = areEqual(translationCardProps1, translationCardProps2);
+
+        expect(isEqual).toBeFalsy();
     });
 });

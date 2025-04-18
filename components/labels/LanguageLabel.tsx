@@ -1,7 +1,7 @@
-import { StyleSheet, Text } from "react-native";
-import { LanguageLabelProps } from "../../types/componentTypes";
 import { Link } from "expo-router";
 import { useSelector } from "react-redux";
+import { StyleSheet, Text } from "react-native";
+import { LanguageLabelProps } from "../../types/componentTypes";
 import { selectSourceLangNameEn, selectTargetLangNameEn } from "../../app/slices/languageSelectorSlice";
 
 export default function LanguageLabel({ isSource }: LanguageLabelProps) {

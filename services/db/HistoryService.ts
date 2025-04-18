@@ -1,6 +1,6 @@
-import { historyTable } from "../../db/schema";
 import { eq } from "drizzle-orm";
 import { db } from "./dbService";
+import { historyTable } from "../../db/schema";
 
 export default class HistoryService {
     static async create(item: HistoryItem) {

@@ -1,12 +1,12 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
-import { TranslationCardProps } from "../../types/componentTypes";
 import React, { useState } from "react";
+import * as Clipboard from "expo-clipboard";
 import CopyButton from "../buttons/CopyButton";
 import RemoveButton from "../buttons/RemoveButton";
-import * as Clipboard from "expo-clipboard";
 import HistoryService from "../../services/db/HistoryService";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { TranslationCardProps } from "../../types/componentTypes";
 
-function areEqual(prev: TranslationCardProps, next: TranslationCardProps) {
+export function areEqual(prev: TranslationCardProps, next: TranslationCardProps) {
     return prev.id === next.id && prev.sourceText === next.sourceText && prev.targetText === next.targetText;
 }
 

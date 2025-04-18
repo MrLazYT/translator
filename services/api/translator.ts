@@ -1,6 +1,5 @@
 import axios from "axios";
 import HistoryService from "../db/HistoryService";
-import { useRef } from "react";
 
 export async function translate({ text, source = "auto", target = "uk" }: tranlsateProps) {
     const api = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${source}&tl=${target}&dt=t&q=${encodeURIComponent(

@@ -1,5 +1,5 @@
-import SourceTextInput from "../../../components/textInputs/SourceTextInput";
 import { render } from "@testing-library/react-native";
+import SourceTextInput from "../../../components/textInputs/SourceTextInput";
 
 describe("SourceTextInput", () => {
     test("Renders correctly", () => {

@@ -3,8 +3,8 @@ import { CustomImageButtonProps } from "../../types/componentTypes";
 
 export default function CircleImageButton({ source, onPress }: CustomImageButtonProps) {
     return (
-        <Pressable style={styles.imageContainer} onPress={onPress}>
-            <Image source={source} style={styles.image} />
+        <Pressable testID="crl-prs" style={styles.imageContainer} onPress={onPress}>
+            <Image testID="crl-img" source={source} style={styles.image} />
         </Pressable>
     );
 }

@@ -1,8 +1,8 @@
+import { store } from "./store";
 import { Suspense } from "react";
 import { Stack } from "expo-router";
-import { ActivityIndicator, StatusBar } from "react-native";
 import { Provider } from "react-redux";
-import { store } from "./store";
+import { ActivityIndicator, StatusBar } from "react-native";
 
 export default function RootLayout() {
     return (

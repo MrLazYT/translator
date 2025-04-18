@@ -1,7 +1,7 @@
+import { useSelector } from "react-redux";
+import { useLocalSearchParams } from "expo-router";
 import { FlatList, StyleSheet, View } from "react-native";
 import LanguageOption from "../components/options/LanguageOption";
-import { useLocalSearchParams } from "expo-router";
-import { useSelector } from "react-redux";
 import { selectSourceLangCode, selectTargetLangCode } from "./slices/languageSelectorSlice";
 
 export default function SelectLanguageModal() {

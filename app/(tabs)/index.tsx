@@ -1,12 +1,12 @@
 import { useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import { StyleSheet, View } from "react-native";
+import { updateTranslation } from "../../services/api/translator";
+import useUpdateTranslation from "../../hooks/useUpdateTranslation";
 import TargetTextOutput from "../../components/textOutputs/TextOutput";
 import SourceTextInput from "../../components/textInputs/SourceTextInput";
 import LanguageSelector from "../../components/selectors/LanguageSelector";
-import { updateTranslation } from "../../services/api/translator";
-import { useSelector } from "react-redux";
 import { selectSourceLangCode, selectTargetLangCode } from "../slices/languageSelectorSlice";
-import useUpdateTranslation from "../../hooks/useUpdateTranslation";
 
 export default function Index() {
     const sourceLangCode = useSelector(selectSourceLangCode);

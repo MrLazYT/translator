@@ -1,7 +1,7 @@
-import { Pressable, StyleSheet, Text } from "react-native";
-import { LanguageOptionProps } from "../../types/componentTypes";
 import { useRouter } from "expo-router";
 import { useDispatch, useSelector } from "react-redux";
+import { Pressable, StyleSheet, Text } from "react-native";
+import { LanguageOptionProps } from "../../types/componentTypes";
 import {
     selectSourceLangCode,
     selectTargetLangCode,
