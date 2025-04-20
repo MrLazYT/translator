@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { StyleSheet, View } from "react-native";
 import { updateTranslation } from "../../services/api/translator";
 import useUpdateTranslation from "../../hooks/useUpdateTranslation";
-import TargetTextOutput from "../../components/textOutputs/TextOutput";
 import SourceTextInput from "../../components/textInputs/SourceTextInput";
 import LanguageSelector from "../../components/selectors/LanguageSelector";
+import TargetTextOutput from "../../components/textOutputs/TargetTextOutput";
 import { selectSourceLangCode, selectTargetLangCode } from "../slices/languageSelectorSlice";
 
 export default function Index() {

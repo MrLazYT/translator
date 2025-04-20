@@ -25,6 +25,7 @@ export type LanguageSelectorProps = {
 };
 
 export type LanguageLabelProps = {
+    testID?: string;
     isSource: boolean;
 };
 

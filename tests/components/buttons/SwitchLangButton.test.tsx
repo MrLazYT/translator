@@ -1,6 +1,6 @@
+import { useDispatch, useSelector } from "react-redux";
 import { fireEvent, render } from "@testing-library/react-native";
 import SwitchLangButton from "../../../components/buttons/SwitchLangButton";
-import { useDispatch, useSelector } from "react-redux";
 import { setSourceLang, setTargetLang } from "../../../app/slices/languageSelectorSlice";
 
 jest.mock("react-redux", () => ({

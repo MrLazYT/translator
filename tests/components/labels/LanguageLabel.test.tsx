@@ -1,6 +1,6 @@
+import { useSelector } from "react-redux";
 import { fireEvent, render } from "@testing-library/react-native";
 import LanguageLabel from "../../../components/labels/LanguageLabel";
-import { useSelector } from "react-redux";
 
 jest.mock("react-redux", () => ({
     useSelector: jest.fn(),

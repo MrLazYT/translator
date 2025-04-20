@@ -5,9 +5,9 @@ import SwitchLangButton from "../buttons/SwitchLangButton";
 export default function LanguageSelector() {
     return (
         <View style={styles.languageSelectorContainer}>
-            <LanguageLabel isSource={true} />
+            <LanguageLabel testID="src-lang-lbl" isSource={true} />
             <SwitchLangButton />
-            <LanguageLabel isSource={false} />
+            <LanguageLabel testID="trg-lang-lbl" isSource={false} />
         </View>
     );
 }

@@ -1,8 +1,8 @@
 import * as Clipboard from "expo-clipboard";
 import HistoryService from "../../../services/db/HistoryService";
-import TranslationCard, { areEqual } from "../../../components/cards/TranslationCard";
-import { fireEvent, render, waitFor } from "@testing-library/react-native";
 import { TranslationCardProps } from "../../../types/componentTypes";
+import { fireEvent, render, waitFor } from "@testing-library/react-native";
+import TranslationCard, { areEqual } from "../../../components/cards/TranslationCard";
 
 const sourceText = "Hello";
 const targetText = "Привіт";

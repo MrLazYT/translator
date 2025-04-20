@@ -22,13 +22,13 @@ export default function LanguageOption({ isSource, langCode, langNameEn, langNam
     };
 
     return (
-        <Pressable onPress={onPressHandle} style={isSelected ? styles.selectedOption : styles.option}>
+        <Pressable testID="opt-prs" onPress={onPressHandle} style={isSelected ? styles.selectedOption : styles.option}>
             <Text style={styles.optionText}>{langNameEn}</Text>
         </Pressable>
     );
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
     option: {
         padding: 20,
         backgroundColor: "#1E1E1E",
